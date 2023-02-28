@@ -33,3 +33,11 @@ a{
 .submit input:hover{
     background-color:black;color:white;transition:300ms;
 }
+
+.red{
+    color:red;
+}
+
+.green{
+    color:green;
+}
