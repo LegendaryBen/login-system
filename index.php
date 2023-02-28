@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,14 +14,24 @@
     <header>
         <h1>HOME PAGE</h1>
         <div>
-            <a href="login.php">login</a>
-            <a href="signup.php">sign up</a>
-            <!-- <a href="logout.php">logout</a> -->
+            <?php
+            if(isset($_SESSION['user'])){
+                print '<a href="logout.php">logout</a>';
+            }else{
+              echo   '<a href="login.php">login</a>';
+              echo  '<a href="signup.php">sign up</a>';
+            }
+            ?> 
         </div>
     </header>
     <main>
-        <!-- <h1>WELCOME <span>BENJAMIN</span></h1> -->
-        <h1>WELCOME TO THE HOME PAGE</h1>
+        <?php
+            if(isset($_SESSION['user'])){
+             print  "<h1>WELCOME  ".strtoupper($_SESSION['user'][0][1])."</h1>";
+            }else{
+              echo   "<h1>WELCOME TO THE HOME PAGE</h1>";
+            }
+        ?> 
     </main>
 </body>
 </html>

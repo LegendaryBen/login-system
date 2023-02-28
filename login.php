@@ -8,18 +8,22 @@
     <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    <!-- <div>
-        This is the login page!
-    </div> -->
-    <form action="">
+    <?php
+        if(isset($_GET['name']) && isset($_GET['color'])){
+            $name = $_GET['name'];
+            $color = $_GET['color'];
+            echo '<div class="'.$color.'">'.$name.'</div>';
+        }
+    ?>
+    <form method="post" action="verify.login.php">
         <div>
-            <input type="text" placeholder="Email">
+            <input type="text" placeholder="Username" name="username">
         </div>
         <div>
-            <input type="text" placeholder="Password">
+            <input type="text" placeholder="Password" name="password">
         </div>
         <div class="submit">
-            <input type="submit" value="submit">
+            <input type="submit" value="submit" name="submit">
         </div>
         <a href="index.php">Home page</a>
     </form>
